@@ -68,6 +68,7 @@ Our code is written entirely in **Makeblock (block-based programming)** and save
 |`S2\_11.4.mblock`|Code completed on the second team session, scheduled on 11/4/26. Covers basic movement around the track using the ultrasonic sensor for wall detection. Started to incorporate the CyberPi's inbuilt gyroscope for more accurate turning|
 |`S3\_18.4.mblock`|Code completed on the third team session, scheduled on 18/4/26. Incorporates acceleration and deceleration code blocks to minimize errors on the straight sections|
 |`S4\_25.4.mblock`|Code completed on the fourth team session, scheduled on 25/4/26. Uses the CyberPi's gyroscope for turning by turning 90 degrees relative to the previous position for each corner|
+|`wro26fe.py`|Improved Python version|
 |`/photos/`|Photos of the vehicle from all sides, and the team|
 |`/screenshots/`|Screenshots of block code for judge reference|
 
