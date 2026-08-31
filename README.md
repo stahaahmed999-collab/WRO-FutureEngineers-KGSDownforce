@@ -88,8 +88,6 @@ Our code is written both in **Makeblock (block-based programming)** and **Python
 
 ### Design Decisions
 
-
-
 **Why Mbot2 Shield?**
 
 The Mbot2 shield comes with an integrated rechargeable power supply and a variety of ports to connect sensors, motors and servos.
@@ -106,9 +104,6 @@ Encoder feedback allows the robot to track how far it has travelled with precisi
 
 **Why XTOOL Education AI Camera 2.0?**
 The XTOOL Education AI Camera 2.0 provides built-in color and object detection, reducing the processing load on the main controller. It outputs clean, actionable signals that integrate well with our block-based code structure.
-
-**Why Block-Based Programming?**
-Our team chose Scratch because it allows rapid development and easy debugging of logic flows. The visual block structure makes it straightforward for all team members to understand, modify, and test the code collaboratively. As noted in WRO guidelines, there are no restrictions on programming language — block-based coding is fully accepted.
 
 \---
 
