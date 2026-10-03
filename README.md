@@ -135,7 +135,7 @@ Our code is written both in **Makeblock (block-based programming)** and **Python
 |Lane-sensing algorithm was over-correcting, leading to jerky movements|Transform the sigmoid function by cubing the x, making turning smoother|
 |Placement of Encoder Motor on YFROBOT Chassis was faulty, causing the gears between the wheel axle and motor to seperate|Tie rubber bands to Encoder Motor and wheel axle to keep them connected. (Refer to `/photos/rubberband.jpeg`|
 |The servo controlling the steering system operates at 6 V, but our controller supplies 3.7 V. The operating voltage was insufficient, hence over a period of time the servo circuitry heated up and stopped working. This problem was due to poor power management.|This was rectified by redesigning the power architecture. Under the new architecture the CyberPi and mBot2 Shield provided only the signal that controlled the servo angles. The power of the servo was provided externally using a 6 V battery pack.  The most important consideration in this design was that the ground(negative) connections from the external source, the CyberPi and the servo had to be connected to form a common ground.|
-|The delay in the ultrasonic sensors was causing the robot to start turning too late|Initially we tilted the side ultrasonic sensors to face forwards. However when placed at an angle they gave anomalous readings very frequently, making the algorithm unreliable. (Refer to `/photos/robot\_v2/` pictures). In the end, we moved the side ultrasonic sensors to the front of the robot, perpendicular to the front ultrasonic sensor. (Refer to `/photos/robot\_v3/` pictures)|
+|The delay in the ultrasonic sensors was causing the robot to start turning too late|Initially we tilted the side ultrasonic sensors to face forwards. However when placed at an angle they gave anomalous readings very frequently, making the algorithm unreliable. (Refer to `/photos/robot_v2/` pictures). In the end, we moved the side ultrasonic sensors to the front of the robot, perpendicular to the front ultrasonic sensor. (Refer to `/photos/robot_v3/` pictures)|
 |The YFROBOT Chassis (versions 1-3) was inadequate. Its turn radius was too large and it was too wide, so it was unable to maneuver around traffic lights in the obstacle challenge.|Switched to a new, custom-designed robot. Priority was a smaller turn radius, and narrower size.|
 
 \---
@@ -146,29 +146,29 @@ Photos of the vehicle from all sides, top, and bottom are available in the `/pho
 
 |View|File|
 |-|-|
-|Front of version 1 of the robot|`/photos/robot\_v1/front.jpeg`|
-|Rear of version 1 of the robot|`/photos/robot\_v1/rear.jpeg`|
-|Left side of version 1 of the robot|`/photos/robot\_v1/left.jpeg`|
-|Right side of version 1 of the robot|`/photos/robot\_v1/right.jpeg`|
-|Top of version 1 of the robot|`/photos/robot\_v1/top.jpeg`|
-|Bottom of version 1 of the robot|`/photos/robot\_v1/bottom.jpeg`|
-|Front of version 2 of the robot|`/photos/robot\_v2/bottom.jpeg`|
-|Left side of version 2 of the robot|`/photos/robot\_v2/left.jpeg`|
-|Right side of version 2 of the robot|`/photos/robot\_v2/right.jpeg`|
-|Top of version 2 of the robot|`/photos/robot\_v2/top.jpeg`|
-|Front of version 3 of the robot|`/photos/robot\_v3/front.jpeg`|
-|Rear of version 3 of the robot|`/photos/robot\_v3/rear.jpeg`|
-|Left side of version 3 of the robot|`/photos/robot\_v3/left.jpeg`|
-|Right side of version 3 of the robot|`/photos/robot\_v3/right.jpeg`|
-|Top of version 3 of the robot|`/photos/robot\_v3/top.jpeg`|
-|Bottom of version 3 of the robot|`/photos/robot\_v3/bottom.jpeg`|
+|Front of version 1 of the robot|`/photos/robot_v1/front.jpeg`|
+|Rear of version 1 of the robot|`/photos/robot_v1/rear.jpeg`|
+|Left side of version 1 of the robot|`/photos/robot_v1/left.jpeg`|
+|Right side of version 1 of the robot|`/photos/robot_v1/right.jpeg`|
+|Top of version 1 of the robot|`/photos/robot_v1/top.jpeg`|
+|Bottom of version 1 of the robot|`/photos/robot_v1/bottom.jpeg`|
+|Front of version 2 of the robot|`/photos/robot_v2/bottom.jpeg`|
+|Left side of version 2 of the robot|`/photos/robot_v2/left.jpeg`|
+|Right side of version 2 of the robot|`/photos/robot_v2/right.jpeg`|
+|Top of version 2 of the robot|`/photos/robot_v2/top.jpeg`|
+|Front of version 3 of the robot|`/photos/robot_v3/front.jpeg`|
+|Rear of version 3 of the robot|`/photos/robot_v3/rear.jpeg`|
+|Left side of version 3 of the robot|`/photos/robot_v3/left.jpeg`|
+|Right side of version 3 of the robot|`/photos/robot_v3/right.jpeg`|
+|Top of version 3 of the robot|`/photos/robot_v3/top.jpeg`|
+|Bottom of version 3 of the robot|`/photos/robot_v3/bottom.jpeg`|
 |Zoomed in phots of rubber bands tying the Encoder motor to the wheel axle housing of version 3 |`/photos/rubberband.jpeg`|
-|Front of version 3 of the robot|`/photos/robot\_v4/front.jpeg`|
-|Rear of version 3 of the robot|`/photos/robot\_v4/rear.jpeg`|
-|Left of version 3 of the robot|`/photos/robot\_v4/left.jpeg`|
-|Right of version 3 of the robot|`/photos/robot\_v4/right.jpeg`|
-|Top of version 3 of the robot|`/photos/robot\_v4/top.jpeg`|
-|Bottom of version 3 of the robot|`/photos/robot\_v4/bottom.jpeg`|
+|Front of version 3 of the robot|`/photos/robot_v4/front.jpeg`|
+|Rear of version 3 of the robot|`/photos/robot_v4/rear.jpeg`|
+|Left of version 3 of the robot|`/photos/robot_v4/left.jpeg`|
+|Right of version 3 of the robot|`/photos/robot_v4/right.jpeg`|
+|Top of version 3 of the robot|`/photos/robot_v4/top.jpeg`|
+|Bottom of version 3 of the robot|`/photos/robot_v4/bottom.jpeg`|
 |Team Photo|`/photos/team.jpeg`|
 
 \---
