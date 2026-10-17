@@ -18,6 +18,9 @@
 |Ziyad Farrukh|Code and Design|
 |Syed Taha Ahmed|Documentation and Design|
 
+ <img width="700" height="560" alt="The forces pic" src="https://github.com/user-attachments/assets/e27f39d8-0603-42ae-b6e6-06a0d72ebed9" />
+
+
 \---
 
 ## Project Overview
