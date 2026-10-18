@@ -1,4 +1,5 @@
 # WRO 2026 Future Engineers — Team Downforce
+## Our Documentation
 
 ## Team Information
 
@@ -18,7 +19,21 @@
 |Ziyad Farrukh|Code and Design|
 |Syed Taha Ahmed|Documentation and Design|
 
+### The Team:
+
  <img width="700" height="560" alt="The forces pic" src="https://github.com/user-attachments/assets/e27f39d8-0603-42ae-b6e6-06a0d72ebed9" />
+
+ A Video is nice, meaning it HAS to be added, kinda like the Canadaian one
+
+## Our Robot - (The name of our bot)
+
+Image 1 : Gif - 360 view of it
+Image 2: Right 
+Image 3 : Left
+Image 4 : front
+Image 5: Back
+Image 6 : Up
+Image 7: Down
 
 
 \---
