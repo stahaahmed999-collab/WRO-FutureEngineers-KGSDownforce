@@ -22,6 +22,10 @@
 ### The Team:
 
  <img width="700" height="560" alt="The forces pic" src="https://github.com/user-attachments/assets/e27f39d8-0603-42ae-b6e6-06a0d72ebed9" />
+ 
+ 
+ 
+ We are a team of students from Pakistan, studying at Karachi Grammar School.
 
  A Video is nice, meaning it HAS to be added, kinda like the Canadaian one
 
@@ -50,7 +54,7 @@ Our robot has gone through four design iterations in total. Versions one to thre
 
 \---
 
-## Vehicle Design
+## Vehicle Design Evolution
 
 ### Chassis \& Mechanics
 
@@ -115,6 +119,10 @@ Our robot has gone through four design iterations in total. Versions one to thre
 * **Width:** 20cm
 * **Height:** 11.5cm
 * **Weight:** 900g
+
+## Final Vehicle Design
+### Chasis & Mechanics
+* **Chassis:** Custom design using Makeblock parts
 
 All dimensions are within the WRO 2026 Future Engineers maximum specification of 30×20×30 cm.
 
