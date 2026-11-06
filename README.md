@@ -137,7 +137,8 @@ Our robot has gone through four design iterations in total. Versions one to thre
 |3x8 Beam|x1|
 |3x14 Beam|x1|
 |3x4 Beam|x2|
-
+* **Drive Motor**: 180 Optical Encoder Motor for mBot2 — provides precise speed and distance feedback, exactly what we needed for such a challenge
+<img width="447" height="447" alt="images" src="https://github.com/user-attachments/assets/26e72419-6d79-4bed-91be-8df9fcab9475" />
 
 All dimensions are within the WRO 2026 Future Engineers maximum specification of 30×20×30 cm.
 
