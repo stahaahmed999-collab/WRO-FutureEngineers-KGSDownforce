@@ -122,7 +122,22 @@ Our robot has gone through four design iterations in total. Versions one to thre
 
 ## Final Vehicle Design
 ### Chasis & Mechanics
-* **Chassis:** Custom design using Makeblock parts
+* **Chassis:** Custom design using Makeblock parts:
+  
+|Make Block Piece Used|Quantity|
+|-|-|
+|3x3 L-Bracket|x6|
+|Bracket U1|x4|
+|V-Bracket|x3|
+|3x8 L-Bracket|x1|
+|7x9 Plate|x1|
+|3x9 Plate|x3|
+|1x17 Beam|x2|
+|3x22 Beam|x1|
+|3x8 Beam|x1|
+|3x14 Beam|x1|
+|3x4 Beam|x2|
+
 
 All dimensions are within the WRO 2026 Future Engineers maximum specification of 30×20×30 cm.
 
