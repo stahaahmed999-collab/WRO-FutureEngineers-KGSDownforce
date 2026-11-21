@@ -120,7 +120,7 @@ Our robot has gone through four design iterations in total. Versions one to thre
 * **Height:** 11.5cm
 * **Weight:** 900g
 
-## Final Vehicle Design
+## Final Vehicle Design(V5)
 ### Chasis & Mechanics
 * **Chassis:** Custom design using Makeblock parts:
   
