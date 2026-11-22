@@ -1,229 +1,134 @@
-# WRO 2026 Future Engineers — Team Downforce
-## Our Documentation
+# Team Downforce | WRO Future Engineers 2026
 
-## Team Information
+**Karachi Grammar School · Karachi, Pakistan · Self-Driving Cars**
 
-**Team Name:** Downforce
-**Category:** WRO Future Engineers — Self-Driving Car Challenge
-**Season:** 2026
-**Country:** Pakistan
-**City:** Karachi
-**Number of Team Members:** 3
-**Coach:** Bilal Hassan
+![Our final V4 robot](media/robot_v4/view_01.jpg)
 
-### Team Members
+*Downforce V4: our custom Makeblock-based competition vehicle. Python file numbers identify programming revisions; V4 is the final physical robot.*
 
-|Name|Role|
-|-|-|
-|Shaayan Nadir|Documentation|
-|Ziyad Farrukh|Code and Design|
-|Syed Taha Ahmed|Documentation and Design|
+## Meet the team
 
-### The Team:
+Team Downforce is a three-member robotics team from Karachi Grammar School competing in the World Robot Olympiad Future Engineers category. We designed our vehicle to navigate the competition track autonomously, complete laps, and use visual recognition to respond to red and green traffic-sign pillars.
 
- <img width="700" height="560" alt="The forces pic" src="https://github.com/user-attachments/assets/e27f39d8-0603-42ae-b6e6-06a0d72ebed9" />
- 
- 
- 
- We are a team of students from Pakistan, studying at Karachi Grammar School.
+| Member | Responsibility |
+|---|---|
+| Shaayan Nadir | Documentation |
+| Ziyad Farrukh | Code and design |
+| Syed Taha Ahmed | Documentation and design |
+| Coach | Bilal Hassan |
 
- A Video is nice, meaning it HAS to be added, kinda like the Canadaian one
+![Team Downforce](media/team.jpeg)
 
-## Our Robot - (The name of our bot)
+## Table of contents
 
-Image 1 : Gif - 360 view of it
-Image 2: Right 
-Image 3 : Left
-Image 4 : front
-Image 5: Back
-Image 6 : Up
-Image 7: Down
+1. [Project overview](#1-project-overview)
+2. [Robot development: V1–V4](#2-robot-development-v1v4)
+3. [Mobility and mechanical design](#3-mobility-and-mechanical-design)
+4. [Power and electrical architecture](#4-power-and-electrical-architecture)
+5. [Sensors and perception](#5-sensors-and-perception)
+6. [Open and Obstacle Challenges](#6-open-and-obstacle-challenges)
+7. [Software and source code](#7-software-and-source-code)
+8. [Testing and engineering decisions](#8-testing-and-engineering-decisions)
+9. [Parts and reconstruction](#9-parts-and-reconstruction)
+10. [Photographs and performance media](#10-photographs-and-performance-media)
+11. [References](#11-references)
 
+## 1. Project overview
 
-\---
+The project started with a YFROBOT-based platform and developed into a custom Makeblock chassis. We used the first three physical versions to explore wall sensing, steering, and reliability. Following our Nationals experience with V3, we redesigned the mechanical platform. **V4 is the final physical robot.**
 
-## Project Overview
+Our design combines **one rear encoder drive motor**, **a shared rear axle**, **a centrally positioned servo moving both front wheels**, three ultrasonic distance sensors, an elevated Smart Camera for traffic-sign recognition, and a downward-facing Quad RGB sensor for lap counting. The integrated mBot2 system supplies all electrical power.
 
-Team Downforce is a robotics team from Karachi, Pakistan, competing in the WRO 2026 Future Engineers category. Our challenge is to design, build, and program a fully autonomous self-driving car capable of completing laps on a dynamic racetrack, detecting and responding to traffic signs, and performing parallel parking — all without any human input during the run.
+[Read the design and requirements overview →](docs/project-overview.md)
 
-Our vehicle is built on an **MBOT2 chassis** equipped with a high-precision encoder motor for reliable distance and speed control. For visual sensing and AI-based decision making, we use an **AI Smart Camera**, which handles color detection for the red and green traffic sign pillars. Our code is written in **Python (text-based programming)**.
+## 2. Robot development: V1–V4
 
+| Physical version | Purpose | Engineering takeaway |
+|---|---|---|
+| **V1** | Establish basic navigation on a YFROBOT platform | Initial car-type steering and side-wall sensing |
+| **V2** | Angle side ultrasonic sensors forward for earlier corner response | Angled sensing introduced unreliable readings |
+| **V3** | Nationals entry with side sensors mounted orthogonally | Original platform's size and turning geometry limited obstacle maneuvering |
+| **V4** | Custom Makeblock-based final design | New front linkage steering, integrated power, elevated vision and rear stabilizer |
 
+<table><tr><td width="50%"><img src="media/robot_v3/top.jpeg" alt="V3 Nationals robot" width="100%"><br><em>V3: Nationals platform.</em></td><td width="50%"><img src="media/robot_v4/view_02.jpg" alt="V4 custom robot" width="100%"><br><em>V4: final custom construction.</em></td></tr></table>
 
-Our robot has gone through four design iterations in total. Versions one to three were before the Nationals, based on a YFROBOT Chassis specifically for its Ackermann steering. To the chassis, we attached our own microcontroller, sensors and motor. Following nationals, we revamped the robot completely, switching to a custom design using Makeblock parts. The priority was a narrower robot with a smaller turn radius, as at Nationals our robots main flaw was being too bulky to maneuver around the traffic lights in the obstacle challenge. We achieved this using parallel steering geometry and attaching the front wheels to a servo, independent of the rest of the robot.
+**Why redesign?** The V3 chassis was too bulky and could not turn tightly enough around traffic-sign pillars. The custom V4 design offered greater freedom in wheel placement, linkage geometry and component mounting.
 
-\---
+[Read the full development history →](docs/robot-evolution.md)
 
-## Vehicle Design Evolution
+## 3. Mobility and mechanical design
 
-### Chassis \& Mechanics
+V4 uses a **single Makeblock 180 Optical Encoder Motor** coupled to a common rear axle, with servo-actuated steering of the two front wheels. A centrally mounted servo drives a primary lateral linkage, which connects to two side linkages. All structural connections use reusable Makeblock plates, beams, brackets and fasteners.
 
-###### Versions 1-3
+A further challenge was **sideways tipping during full-steering turns**. We added a rigid, approximately 200 g rear stabilizer built from metal beams, mounted across the rear of the car and behind the rear axle. This was designed around turning stability and track-wall clearance, rather than aerodynamic downforce.
 
-* **Chassis:** YFROBOT (car-type steering chassis)
-* **Drive Motor:**  180 Optical Encoder Motor for mBot2 — provides precise speed and distance feedback
-* **Steering:** Servo-based Ackermann steering system
-* **Drive System:** Rear-wheel system with an axel
-* **Power Supply:** 3.7 V Lithium (2500 mAh battery capacity) + 6 V external battery pack(4 AA batteries) to power the servo, with a common ground between the two supplies
-* **Controller:** mBot2 Shield - Dual core ESP32-S3 processor
+![V4 construction](media/robot_v4/view_03.jpg)
 
-\--- 
+*The final mechanical assembly is explained with component positions, design reasons, dimensions, calculations and build instructions in the linked chapter.*
 
-###### Version 4
+[Read mechanical design and calculations →](docs/mechanical-design.md)
 
-* **Chassis:** Custom design using Makeblock parts
-* **Drive Motor:**  180 Optical Encoder Motor for mBot2 — provides precise speed and distance feedback
-* **Steering:** Servo-based parallel steering system
-* **Drive System:** Rear-wheel system with an axel
-* **Power Supply:** 3.7 V Lithium (2500 mAh battery capacity)
-* **Controller:** mBot2 Shield - Dual core ESP32-S3 processor
+## 4. Power and electrical architecture
 
-\---
+V4 uses a **single 3.7 V, 2500 mAh integrated lithium supply**. Unlike earlier versions that supplied the servo from a separate 6 V AA battery pack, the final vehicle powers its steering, motor, camera and sensors through the mBot2 system.
 
-### Sensing \& Vision
+![Power distribution block diagram](hardware/diagrams/v4-power-architecture.png)
 
-###### Versions 1-3
+**Nominal stored battery energy:** `3.7 V × 2.5 Ah = 9.25 Wh`. Runtime calculations are presented as engineering scenarios because average whole-robot current was not directly measured.
 
-* **AI Camera:** XTOOL Education AI Camera 2.0 (model: MMA-K001-001) — used for detecting red and green traffic sign pillars
-* **Ultrasonic Sensor:** Three Ultrasonic Sensor 2s (Makeblock) - used for detecting robots distance from front, right and left walls
-* **Color Sensor:** Quad RGB Sensor (Makeblock) - used for detecting blue lines to track how many rounds the robot has completed
-* **Ranging Sensor:** One Ranging Sensor (Makeblock) - used as a connecting bridge to link color sensor to mBot2 Shield
+[Read electrical architecture and runtime analysis →](docs/electrical-and-power.md)
 
-\---
+## 5. Sensors and perception
 
-###### Version 4
+Three Ultrasonic Sensor 2 modules cover **left, front and right** wall distances. The **front-mounted elevated Smart Camera** is dedicated to recognizing traffic-sign pillars in the Obstacle Challenge. A rear-mounted downward-facing **Quad RGB sensor** detects blue track markings for lap counting in both challenges.
 
-* **AI Camera:** Makeblock Smart Camera
+![V4 sensor placement](media/robot_v4/view_04.jpg)
 
-  * Resolution: 640 x 480 px
-  * Viewing angle: 65 °
-  * Effective focal length: 4.65 ± 5% mm
-  * Frames per second: 60
-  * Effective recognition distance: 0.25m to 1.2m
-  * Drop resistance: 1 m
-  * Communication interface: I2CPower consumption: from 0.9 W to 1.3 W
-  * Working temperature: from -10 ° C to 55 ° CDimensions: 48 x 48 mm
-* **Ultrasonic Sensor:** Three Ultrasonic Sensor 2s (Makeblock) - used for detecting robots distance from front, right and left walls
+[Read sensor placement and design rationale →](docs/sensors-and-perception.md)
 
-  * Output range: 5–300 cm (The output value is 300 when the distance detected is out of the output range.)
-  * Output value error: ±5%
-* **Color Sensor:** Quad RGB Sensor (Makeblock) - used for detecting blue lines to track how many rounds the robot has completed
+## 6. Open and Obstacle Challenges
 
-  * Detection range: 5–15 mm from the object to be detected
+In the Open Challenge, the control system uses ultrasonic wall information and counts four blue-line crossings per lap. After **12 crossings** (three laps), the robot executes its finishing sequence. For the Obstacle Challenge, the Smart Camera is used to identify red and green pillars while wall sensors remain relevant to navigation.
 
-\---
+**Competition performance:** [Watch our Open Challenge video](media/OPEN_CHALLENGE.mp4).
 
-### Vehicle Dimensions
+[Read the challenge strategies →](docs/challenge-strategies.md)
 
-* **Length:** 25cm
-* **Width:** 20cm
-* **Height:** 11.5cm
-* **Weight:** 900g
+## 7. Software and source code
 
-## Final Vehicle Design(V5)
-### Chasis & Mechanics
-* **Chassis:** Custom design using Makeblock parts:
-  
-|Make Block Piece Used|Quantity|
-|-|-|
-|3x3 L-Bracket|x6|
-|Bracket U1|x4|
-|V-Bracket|x3|
-|3x8 L-Bracket|x1|
-|7x9 Plate|x1|
-|3x9 Plate|x3|
-|1x17 Beam|x2|
-|3x22 Beam|x1|
-|3x8 Beam|x1|
-|3x14 Beam|x1|
-|3x4 Beam|x2|
-* **Drive Motor**: 180 Optical Encoder Motor for mBot2 — provides precise speed and distance feedback, exactly what we needed for such a challenge
-<img width="447" height="447" alt="images" src="https://github.com/user-attachments/assets/26e72419-6d79-4bed-91be-8df9fcab9475" />
+We progressed from mBlock experiments using gyro-based turns and acceleration/deceleration to Python approaches with wall-relative steering, nonlinear transforms, Gaussian smoothing, line counting and camera corrections.
 
-All dimensions are within the WRO 2026 Future Engineers maximum specification of 30×20×30 cm.
+The updated archive contains `WRO26v6.py` as its newest Python file. It is **preserved unchanged**, with documented structure and outstanding issues in the code chapter; earlier Python and mBlock versions remain in `code/history/`.
 
-\---
+[**Read the full software documentation and code guide →**](code/README.md)
 
-## Code Structure \& How It Works
+[Software flowcharts and control logic →](code/flowcharts.md)
 
-Our code is written both in **Makeblock (block-based programming)** and **Python (text-based programming)**.
+## 8. Testing and engineering decisions
 
+Our development process was based on diagnosing observed failures: gear separation, power-management problems, inconsistent distance readings, late corner response, excess chassis width, delayed camera updates and sideways tipping. The remedies and their limits are summarized in the engineering record.
 
+[Read our testing, design trade-offs and results →](docs/testing-and-decisions.md)
 
-### File Index
+## 9. Parts and reconstruction
 
-|File|Description|
-|-|-|
-|`S2\_11.4.mblock`|Code completed on the second team session, scheduled on 11/4/26. Covers basic movement around the track using the ultrasonic sensor for wall detection. Started to incorporate the CyberPi's inbuilt gyroscope for more accurate turning|
-|`S3\_18.4.mblock`|Code completed on the third team session, scheduled on 18/4/26. Incorporates acceleration and deceleration code blocks to minimize errors on the straight sections|
-|`S4\_25.4.mblock`|Code completed on the fourth team session, scheduled on 25/4/26. Uses the CyberPi's gyroscope for turning by turning 90 degrees relative to the previous position for each corner|
-|`WRO26v1.py`|First iteration of lane-sensing algorithm. Uses inputs from ultrasonic sensors on the right and left side to decide how much to steer.|
-|`WRO26v2.py`|Fine-tuned the lane-sensing algorithm by transforming the sigmoid function to make the robot's movement smoother on the straight sections.|
-|`WRO26v3.py`|Started tracking lap progress by counting how many blue lines the color sensor passed over|
-|`WRO26v4.py`|Smoothed out anomalous ultrasonic sensor readings using a Gaussian distribution of a moving average|
-|`WRO26v5.py`|Uses front ultrasonic sensor to move backwards if robot gets too close to a wall|
-|`/photos/`|Photos of the different versions of the robot from all sides, and the team|
-|`/screenshots/`|Screenshots of block code for judge reference|
+The mechanical bill of materials lists the Makeblock components used in the final chassis. The accompanying assembly guide follows the bottom-up construction approach, starting with the wheel assemblies.
 
-\---
+[Components and build guide →](docs/build-and-components.md)
 
-### Challenges \& Solutions
+## 10. Photographs and performance media
 
-|Challenge|How We Solved It|
-|-|-|
-|Our original custom Ackermann steering design was unreliable and had too large of a turn radius to be maneuverable enough to complete the challenges.|Upgrade the chassis for maximum stability and use a new design for the Ackermann steering which allows for more movement capabilities.|
-|Bumps in the challenge mat change robots orientation.|Use the CyberPi's inbuilt gyroscope for turning. At every corner, turn 90 degrees relative to current position, and reset yaw angle after every turn|
-|Immediately moving at maximum rpm and instantaneously stopping causes the robot to jolt and subsequently skid, which causes an offset in the orientation of the robot. This makes the turns of the robot inaccurate and cause it to collide it with the center wall, usually by the third round|Develop code to accelerate and decelerate on the straights to prevent offsets to the robots orientation.|
-|Lane-sensing algorithm was over-correcting, leading to jerky movements|Transform the sigmoid function by cubing the x, making turning smoother|
-|Placement of Encoder Motor on YFROBOT Chassis was faulty, causing the gears between the wheel axle and motor to seperate|Tie rubber bands to Encoder Motor and wheel axle to keep them connected. (Refer to `/photos/rubberband.jpeg`|
-|The servo controlling the steering system operates at 6 V, but our controller supplies 3.7 V. The operating voltage was insufficient, hence over a period of time the servo circuitry heated up and stopped working. This problem was due to poor power management.|This was rectified by redesigning the power architecture. Under the new architecture the CyberPi and mBot2 Shield provided only the signal that controlled the servo angles. The power of the servo was provided externally using a 6 V battery pack.  The most important consideration in this design was that the ground(negative) connections from the external source, the CyberPi and the servo had to be connected to form a common ground.|
-|The delay in the ultrasonic sensors was causing the robot to start turning too late|Initially we tilted the side ultrasonic sensors to face forwards. However when placed at an angle they gave anomalous readings very frequently, making the algorithm unreliable. (Refer to `/photos/robot_v2/` pictures). In the end, we moved the side ultrasonic sensors to the front of the robot, perpendicular to the front ultrasonic sensor. (Refer to `/photos/robot_v3/` pictures)|
-|The YFROBOT Chassis (versions 1-3) was inadequate. Its turn radius was too large and it was too wide, so it was unable to maneuver around traffic lights in the obstacle challenge.|Switched to a new, custom-designed robot. Priority was a smaller turn radius, and narrower size.|
+Robot photographs appear alongside the relevant design explanations, with image files organized in [`media/`](media/). The photo archive covers all four physical designs, alongside the team photo, mBlock development screenshots and Open Challenge performance footage.
 
-\---
+- [V1 photos](media/robot_v1/) · [V2 photos](media/robot_v2/) · [V3 photos](media/robot_v3/) · [V4 photos](media/robot_v4/)
+- [Open Challenge performance video](media/OPEN_CHALLENGE.mp4)
 
-## Photos
+## 11. References
 
-Photos of the vehicle from all sides, top, and bottom are available in the `/photos/` folder of this repository.
+- [WRO 2026 season and documentation resources](https://wro-association.org/competition/2026-season/)
+- [WRO Future Engineers Getting Started guide](https://world-robot-olympiad-association.github.io/future-engineers-gs/)
+- [Official WRO GitHub documentation template](https://github.com/World-Robot-Olympiad-Association/wro2022-fe-template)
+- [Makeblock support](https://support.makeblock.com/)
 
-|View|File|
-|-|-|
-|Front of version 1 of the robot|`/photos/robot_v1/front.jpeg`|
-|Rear of version 1 of the robot|`/photos/robot_v1/rear.jpeg`|
-|Left side of version 1 of the robot|`/photos/robot_v1/left.jpeg`|
-|Right side of version 1 of the robot|`/photos/robot_v1/right.jpeg`|
-|Top of version 1 of the robot|`/photos/robot_v1/top.jpeg`|
-|Bottom of version 1 of the robot|`/photos/robot_v1/bottom.jpeg`|
-|Front of version 2 of the robot|`/photos/robot_v2/bottom.jpeg`|
-|Left side of version 2 of the robot|`/photos/robot_v2/left.jpeg`|
-|Right side of version 2 of the robot|`/photos/robot_v2/right.jpeg`|
-|Top of version 2 of the robot|`/photos/robot_v2/top.jpeg`|
-|Front of version 3 of the robot|`/photos/robot_v3/front.jpeg`|
-|Rear of version 3 of the robot|`/photos/robot_v3/rear.jpeg`|
-|Left side of version 3 of the robot|`/photos/robot_v3/left.jpeg`|
-|Right side of version 3 of the robot|`/photos/robot_v3/right.jpeg`|
-|Top of version 3 of the robot|`/photos/robot_v3/top.jpeg`|
-|Bottom of version 3 of the robot|`/photos/robot_v3/bottom.jpeg`|
-|Zoomed in phots of rubber bands tying the Encoder motor to the wheel axle housing of version 3 |`/photos/rubberband.jpeg`|
-|Front of version 3 of the robot|`/photos/robot_v4/front.jpeg`|
-|Rear of version 3 of the robot|`/photos/robot_v4/rear.jpeg`|
-|Left of version 3 of the robot|`/photos/robot_v4/left.jpeg`|
-|Right of version 3 of the robot|`/photos/robot_v4/right.jpeg`|
-|Top of version 3 of the robot|`/photos/robot_v4/top.jpeg`|
-|Bottom of version 3 of the robot|`/photos/robot_v4/bottom.jpeg`|
-|Team Photo|`/photos/team.jpeg`|
-
-\---
-
-## Resources \& References
-
-* [WRO 2026 Future Engineers General Rules](https://wro-association.org/wp-content/uploads/WRO-2026-Future-Engineers-Self-Driving-Cars-General-Rules.pdf)
-* [WRO Future Engineers Getting Started Guide](https://world-robot-olympiad-association.github.io/future-engineers-gs/)
-* [WRO GitHub Template Repository](https://github.com/World-Robot-Olympiad-Association/wro2022-fe-template)
-
-\---
-
-*This repository will remain public for a minimum of 12 months after the competition as required by WRO 2026 rules.*
-
-*World Robot Olympiad® and the WRO logo are trademarks of the World Robot Olympiad Association Ltd.*
+*The engineering documentation describes our actual physical robot development. Software revision filenames must not be interpreted as additional hardware versions.*
 
