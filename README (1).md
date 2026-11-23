@@ -1,70 +1,67 @@
 # TEAM DOWNFORCE
-## WRO Future Engineers 2026 | Self-Driving Cars
-
+### WRO Future Engineers 2026 · Self-Driving Cars
 **Karachi Grammar School · Karachi, Pakistan**
 
-<p align="center"><img src="media/robot_v4/view_01.jpg" alt="Team Downforce final V4 autonomous car" width="750"></p>
-<p align="center"><em>Downforce V4 — our final custom-built Makeblock autonomous vehicle.</em></p>
+<p align="center">
+  <img src="media/robot_v4/view_01.jpg" alt="Downforce V4, final custom Makeblock robot" width="470">
+</p>
+<p align="center"><sub><strong>Downforce V4</strong> — our final physical robot, designed for autonomous track navigation.</sub></p>
 
-We are **Team Downforce**, a three-member team from Karachi Grammar School participating in the World Robot Olympiad Future Engineers category. Our project is an autonomous car developed through four physical prototypes, combining mechanical redesign, ultrasonic navigation, color-based obstacle recognition and embedded motor control. This repository records the decisions, experiments, programs and physical components behind the car.
+We are **Team Downforce**, a three-member robotics team from Karachi Grammar School. This repository presents the design, development and operation of our autonomous vehicle for WRO Future Engineers 2026. It documents **four physical robot versions (V1–V4)**, the decisions that shaped our final design, the source code, and the technical work behind it. **V4 is the final physical robot**; Python V5 and V6 are software revision labels.
 
-Our most significant development was the move from the prebuilt YFROBOT chassis used at Nationals to a custom **V4 Makeblock chassis**. The redesign addressed limitations in steering, robot dimensions, obstacle recognition and high-speed turning stability. **V4 is the final physical robot; V5 and V6 are software revision numbers only.**
+Our turning point was the National Competition. The prebuilt chassis of V3 restricted steering and maneuverability, and our earlier camera could not update obstacle information quickly enough for the response we wanted. In V4, we moved to a custom Makeblock chassis, improved front steering, changed the camera, and developed a rear stabilization assembly.
 
-<p align="center"><img src="media/team.jpeg" alt="Team Downforce group photograph" width="600"></p>
+<p align="center"><img src="media/team.jpeg" alt="Team Downforce" width="390"></p>
 
-### Our team
-
-| Team member | Main contribution |
-|---|---|
+| Team | Contribution |
+|:--|:--|
 | Shaayan Nadir | Documentation |
-| Ziyad Farrukh | Code and design |
+| Ziyad Farrukh | Programming and design |
 | Syed Taha Ahmed | Documentation and design |
-| **Coach:** Bilal Hassan | Team guidance |
+| Bilal Hassan | Coach |
 
 ---
 
-<a id="top"></a>
-## Table of Contents
+## Explore the Project
 
-1. [Project overview](#1-project-overview)
-   - [The challenge](#11-the-challenge)
-   - [Design philosophy](#12-design-philosophy)
-   - [Final robot specifications](#13-final-robot-specifications)
-   - [Robot photographs and performance video](#14-robot-photographs-and-performance-video)
-2. [Engineering development: V1–V4](#2-engineering-development-v1v4)
-   - [V1: initial prototype](#21-v1-initial-prototype)
-   - [V2: angled ultrasonic sensors](#22-v2-angled-ultrasonic-sensors)
-   - [V3: Nationals robot](#23-v3-nationals-robot)
-   - [V4: custom competition robot](#24-v4-custom-competition-robot)
-   - [V3 versus V4](#25-v3-versus-v4)
-3. [Mobility and mechanical design](#3-mobility-and-mechanical-design)
-   - [Rear-wheel drive](#31-rear-wheel-drive)
-   - [Front-wheel steering](#32-front-wheel-steering)
-   - [Rear stabilization spoiler](#33-rear-stabilization-spoiler)
-   - [Wheel-speed calculations](#34-wheel-speed-calculations)
-   - [Weight and clearance calculations](#35-weight-and-clearance-calculations)
-4. [Electrical system and power management](#4-electrical-system-and-power-management)
-   - [V4 power architecture](#41-v4-power-architecture)
-   - [Electrical component selection](#42-electrical-component-selection)
-   - [Battery capacity and runtime](#43-battery-capacity-and-runtime)
-5. [Sensors and perception](#5-sensors-and-perception)
-   - [Three ultrasonic sensors](#51-three-ultrasonic-sensors)
-   - [Elevated Smart Camera](#52-elevated-smart-camera)
-   - [Quad RGB lap-counting sensor](#53-quad-rgb-lap-counting-sensor)
-6. [Navigation and challenge strategies](#6-navigation-and-challenge-strategies)
-   - [Open Challenge](#61-open-challenge)
-   - [Obstacle Challenge](#62-obstacle-challenge)
-   - [Software navigation flowchart](#63-software-navigation-flowchart)
-7. [Programming and algorithms](#7-programming-and-algorithms)
-   - [Programming evolution](#71-programming-evolution)
-   - [Software modules and algorithms](#72-software-modules-and-algorithms)
-   - [Source code and flowcharts](#73-source-code-and-flowcharts)
+| Start here | In-depth technical documentation |
+|:--|:--|
+| **[Robot evolution: V1–V4](#2-engineering-development-v1v4)** | [Development history and photo comparisons](docs/robot-evolution.md) |
+| **[Mechanical design](#3-mobility-and-mechanical-design)** | [Steering, drivetrain, assembly and calculations](docs/mechanical-design.md) |
+| **[Electronics and power](#4-electrical-system-and-power-management)** | [Power architecture and runtime analysis](docs/electrical-and-power.md) |
+| **[Sensors](#5-sensors-and-perception)** | [Ultrasonic, Smart Camera and RGB sensor layout](docs/sensors-and-perception.md) |
+| **[Navigation](#6-navigation-and-challenge-strategies)** | [Open and Obstacle Challenge strategies](docs/challenge-strategies.md) |
+| **[Software](#7-programming-and-algorithms)** | [Code explanations](code/README.md) · [Flowcharts](code/flowcharts.md) |
+| **[Testing and engineering decisions](#8-testing-setbacks-and-design-decisions)** | [Challenges, changes and test evidence](docs/testing-and-decisions.md) |
+| **[Components and build](#9-parts-and-building-instructions)** | [Parts inventory and assembly guide](docs/build-and-components.md) |
+
+<details>
+<summary><strong>Full table of contents — expand to jump to a subsection</strong></summary>
+
+1. [Project overview](#1-project-overview) · [The challenge](#11-the-challenge) · [Design philosophy](#12-design-philosophy) · [Specifications](#13-final-robot-specifications) · [Photographs and performance](#14-robot-photographs-and-performance-video)
+2. [Engineering development V1–V4](#2-engineering-development-v1v4) · [V1](#21-v1-initial-prototype) · [V2](#22-v2-angled-ultrasonic-sensors) · [V3](#23-v3-nationals-robot) · [V4](#24-v4-custom-competition-robot) · [Comparison](#25-v3-versus-v4)
+3. [Mobility and mechanical design](#3-mobility-and-mechanical-design) · [Drive](#31-rear-wheel-drive) · [Steering](#32-front-wheel-steering) · [Spoiler](#33-rear-stabilization-spoiler) · [Wheel-speed calculation](#34-wheel-speed-calculations) · [Mass and clearance](#35-weight-and-clearance-calculations)
+4. [Electrical system and power management](#4-electrical-system-and-power-management) · [Architecture](#41-v4-power-architecture) · [Components](#42-electrical-component-selection) · [Runtime](#43-battery-capacity-and-runtime)
+5. [Sensors and perception](#5-sensors-and-perception) · [Ultrasonics](#51-three-ultrasonic-sensors) · [Camera](#52-elevated-smart-camera) · [RGB sensor](#53-quad-rgb-lap-counting-sensor)
+6. [Navigation and challenge strategies](#6-navigation-and-challenge-strategies) · [Open](#61-open-challenge) · [Obstacle](#62-obstacle-challenge) · [Flowchart](#63-software-navigation-flowchart)
+7. [Programming and algorithms](#7-programming-and-algorithms) · [Evolution](#71-programming-evolution) · [Algorithms](#72-software-modules-and-algorithms) · [Source](#73-source-code-and-flowcharts)
 8. [Testing, setbacks and design decisions](#8-testing-setbacks-and-design-decisions)
 9. [Parts and building instructions](#9-parts-and-building-instructions)
-10. [Documentation and repository navigation](#10-documentation-and-repository-navigation)
+10. [Technical chapter index](#10-technical-chapter-index)
 11. [References](#11-references)
 
+</details>
+
+### Final robot at a glance
+
+| Platform | Architecture | Main constraints |
+|:--|:--|:--|
+| **V4 custom Makeblock chassis** | Rear-wheel drive, one encoder motor, shared axle; front-wheel servo linkage | 1.10 kg complete mass; approximately 25 × 20 × 22.5 cm overall |
+| **3 ultrasonic sensors + Smart Camera + Quad RGB** | Distance sensing, pillar recognition, lap detection | Camera mounted high; line sensor near rear wheels |
+| **Integrated 3.7 V / 2500 mAh battery** | One power source for motor, servo, controller and sensors | 9.25 Wh nominal battery energy |
+
 ---
+
 
 ## 1. Project Overview
 
@@ -111,9 +108,11 @@ Our development focused on five linked priorities:
 
 ### 1.4 Robot photographs and performance video
 
+The views below show the main mechanical assemblies. For close-ups, visit the dedicated [mechanical chapter](docs/mechanical-design.md).
+
 <table>
-<tr><td align="center"><img src="media/robot_v4/view_01.jpg" width="345"><br><em>Final V4 — side perspective</em></td><td align="center"><img src="media/robot_v4/view_04.jpg" width="345"><br><em>Final V4 — top layout</em></td></tr>
-<tr><td align="center"><img src="media/robot_v4/view_05.jpg" width="345"><br><em>Final V4 — rear construction</em></td><td align="center"><img src="media/robot_v4/view_06.jpg" width="345"><br><em>Final V4 — sensor and camera structure</em></td></tr>
+<tr><td align="center"><img src="media/robot_v4/view_01.jpg" width="245"><br><em>Final V4 — side perspective</em></td><td align="center"><img src="media/robot_v4/view_04.jpg" width="245"><br><em>Final V4 — top layout</em></td></tr>
+<tr><td align="center"><img src="media/robot_v4/view_05.jpg" width="245"><br><em>Final V4 — rear construction</em></td><td align="center"><img src="media/robot_v4/view_06.jpg" width="245"><br><em>Final V4 — sensor and camera structure</em></td></tr>
 </table>
 
 **[Watch the Open Challenge performance recording](media/OPEN_CHALLENGE.mp4)** — a recording of the robot on the track. The video is retained as direct performance evidence alongside the engineering descriptions.
@@ -130,13 +129,13 @@ Each physical iteration was a response to limitations identified during testing.
 
 Our first robot was based on a **YFROBOT car-style chassis**, with rear-wheel propulsion, servo-based steering and distance sensing. This was the starting point for learning how wheel geometry and ultrasonic feedback affected navigation. Rather than building a custom platform immediately, we used the prepared chassis to test basic driving and steering concepts.
 
-<table><tr><td align="center"><img src="media/robot_v1/top.jpeg" width="340"><br><em>V1 top view</em></td><td align="center"><img src="media/robot_v1/bottom.jpeg" width="340"><br><em>V1 underside</em></td></tr></table>
+<table><tr><td align="center"><img src="media/robot_v1/top.jpeg" width="245"><br><em>V1 top view</em></td><td align="center"><img src="media/robot_v1/bottom.jpeg" width="245"><br><em>V1 underside</em></td></tr></table>
 
 ### 2.2 V2: Angled ultrasonic sensors
 
 A problem with the early robot was **late corner recognition**: by the time the vehicle reacted, the turn could already be difficult to complete. We experimented with angling the side ultrasonic sensors forward. This made it possible for them to see some approaching surfaces sooner, but the changed geometry also introduced frequent anomalous measurements.
 
-![V2 arrangement showing the sensor experiment](media/robot_v2/top.jpeg)
+<p align="center"><img src="media/robot_v2/top.jpeg" alt="V2 arrangement showing the sensor experiment" width="430"></p>
 
 The trade-off was important: *earlier* detection does not automatically mean *better* control. A sensor measuring an oblique surface may return a distance that the steering algorithm interprets incorrectly as a normal side-wall distance.
 
@@ -144,13 +143,13 @@ The trade-off was important: *earlier* detection does not automatically mean *be
 
 In V3, we changed the side ultrasonic layout to a more perpendicular configuration relative to the front sensor. The three-direction arrangement was easier to interpret as left, front and right wall information. **V3 was the car we took to Nationals.**
 
-<table><tr><td align="center"><img src="media/robot_v3/top.jpeg" width="340"><br><em>V3 sensor and chassis layout</em></td><td align="center"><img src="media/robot_v3/front.jpeg" width="340"><br><em>V3 front arrangement</em></td></tr></table>
+<table><tr><td align="center"><img src="media/robot_v3/top.jpeg" width="245"><br><em>V3 sensor and chassis layout</em></td><td align="center"><img src="media/robot_v3/front.jpeg" width="245"><br><em>V3 front arrangement</em></td></tr></table>
 
 Nationals revealed the next set of limitations. The YFROBOT chassis was bulky for the tight turns required around pillars, and its steering range was constrained. Our team reported steering angles of about **30° left and 40° right**. We also found that the previous AI camera's updates were too slow for the response we wanted in the obstacle round.
 
 An earlier drivetrain issue involved separation between a motor gear and axle gear. During development, we used a rubber-band retention workaround to keep the gears engaged.
 
-![Gear engagement workaround on the earlier platform](media/rubberband.jpeg)
+<p align="center"><img src="media/rubberband.jpeg" alt="Gear engagement workaround on the earlier platform" width="430"></p>
 
 These experiences motivated a larger redesign: a different chassis and different camera, not simply another software parameter adjustment.
 
@@ -158,7 +157,7 @@ These experiences motivated a larger redesign: a different chassis and different
 
 For the final physical robot, we stopped relying on the prebuilt YFROBOT chassis. Instead, we assembled a custom frame from **Makeblock aluminum structural pieces, brackets, plates, nuts and screws**. The build began at the wheel assemblies and continued upward to the controller and sensor mounts.
 
-![Downforce V4 custom Makeblock construction](media/robot_v4/view_02.jpg)
+<p align="center"><img src="media/robot_v4/view_02.jpg" alt="Downforce V4 custom Makeblock construction" width="430"></p>
 
 The new layout allowed a centrally positioned front steering servo, custom left/right steering linkages, shared rear-axle propulsion, an inclined controller mount, and a front-mounted raised Smart Camera. We retained the left/front/right ultrasonic arrangement from the preceding development stage. Later, we added a rear stabilization structure to address sideways tipping at higher speeds.
 
@@ -186,7 +185,7 @@ The V3–V4 transition represents an engineering choice to gain control over the
 
 The robot uses **one Makeblock 180 Optical Encoder Motor** to power the two rear wheels through a shared axle. The motor output connects directly to the axle, with the motor's reduction gearing contained inside the motor assembly. The front wheels are not driven: their job is steering.
 
-![V4 rear-wheel mechanical assembly](media/robot_v4/view_03.jpg)
+<p align="center"><img src="media/robot_v4/view_03.jpg" alt="V4 rear-wheel mechanical assembly" width="430"></p>
 
 **Why a single motor?** One motor with a shared axle simplifies actuation, wiring and speed commands compared with driving each rear wheel separately. It also introduces a limitation: without an axle differential, both rear wheels share the same rotational motion even though the outside wheel travels a longer path in a corner. That can produce tire scrubbing in tight turns.
 
@@ -194,7 +193,7 @@ The robot uses **one Makeblock 180 Optical Encoder Motor** to power the two rear
 
 A **Makeblock MS-1.5A servo** is mounted centrally underneath the tilted controller, behind the front wheels. Its output actuates one central metal linkage that moves sideways. Two further linkages connect it to the left and right front-wheel pivots. One actuator thus coordinates both front wheels.
 
-![V4 front-wheel steering assembly](media/robot_v4/view_02.jpg)
+<p align="center"><img src="media/robot_v4/view_02.jpg" alt="V4 front-wheel steering assembly" width="430"></p>
 
 **Why this placement?** The servo is protected within the chassis and positioned between the wheels for a compact, approximately symmetrical mechanism. Makeblock beams and screw/nut fasteners give the linkage a rigid overall structure while allowing the joints needed for steering motion. The team tightened the fasteners securely and did not report persistent loosening during tests.
 
@@ -204,7 +203,7 @@ The reported V4 wheel-steering capability is approximately ±90°, compared with
 
 One of V4's most useful design changes followed an observed failure. At full steering, the robot could **tip sideways above roughly 2 km/h**. We added a rigid metal structure behind the rear axle, assembled by fastening multiple Makeblock beams together. The team calls this structure the **rear spoiler**; its principal role in our design is mechanical stabilization rather than aerodynamic downforce.
 
-![V4 rear spoiler](media/robot_v4/view_05.jpg)
+<p align="center"><img src="media/robot_v4/view_05.jpg" alt="V4 rear spoiler" width="430"></p>
 
 | Spoiler characteristic | Value |
 |---|---:|
@@ -288,7 +287,7 @@ At equal turn radius, lateral acceleration follows \(a=v^2/R\). Doubling speed r
 
 In the earlier chassis revisions, a **separate 6 V power pack made from four AA batteries** was used for the steering servo. This followed earlier steering power and overheating difficulties. In V4, every electrical device receives its supply through the mBot2 integrated system. There is **no external battery pack** on the final car.
 
-![V4 electrical system block diagram](hardware/diagrams/v4-power-architecture.png)
+<p align="center"><img src="hardware/diagrams/v4-power-architecture.png" alt="V4 electrical system block diagram" width="580"></p>
 
 The single-source architecture removes separate charging and battery mounting requirements. On the other hand, the drive motor, servo, controller, camera and sensors share one battery, so changes in driving and steering load affect total power demand.
 
@@ -312,7 +311,7 @@ Battery capacity is **2500 mAh = 2.5 Ah** at nominal **3.7 V**, giving:
 E=V\times C=3.7\times2.5=\boxed{9.25\text{ Wh}}
 \]
 
-![Battery runtime working](hardware/calculations/battery-runtime-working.png)
+<p align="center"><img src="hardware/calculations/battery-runtime-working.png" alt="Battery runtime working" width="580"></p>
 
 For a power-budget scenario, the electrical chapter uses average modeled loads for the controller, drive motor, servo, ultrasonics, camera and RGB sensor. These give **6.75 W of component-side power**. With an assumed **85% distribution efficiency**, battery-side demand is approximately **7.94 W**. If **80% of the nominal stored energy** is assumed available, then:
 
@@ -338,7 +337,7 @@ A navigation algorithm is only as useful as the measurements it receives. Downfo
 
 The car uses **three Makeblock Ultrasonic Sensor 2 modules** looking left, forward and right. The front module gives information about upcoming walls; the two side modules supply track-relative distance information for steering. The layout was refined after the V2 angled side sensors produced unreliable measurements for the algorithm.
 
-<table><tr><td align="center"><img src="media/robot_v2/top.jpeg" width="340"><br><em>V2 forward-angled arrangement</em></td><td align="center"><img src="media/robot_v3/front.jpeg" width="340"><br><em>V3 orthogonal sensing concept</em></td></tr></table>
+<table><tr><td align="center"><img src="media/robot_v2/top.jpeg" width="245"><br><em>V2 forward-angled arrangement</em></td><td align="center"><img src="media/robot_v3/front.jpeg" width="245"><br><em>V3 orthogonal sensing concept</em></td></tr></table>
 
 The original project documentation describes a nominal 5–300 cm sensing range and an error figure of about ±5%. In practice, the surface angle and reflected signal affect what an ultrasonic sensor measures; this helps explain why the angled arrangement did not consistently behave as intended.
 
@@ -346,7 +345,7 @@ The original project documentation describes a nominal 5–300 cm sensing range 
 
 The **Makeblock Smart Camera** is mounted high at the front of V4. It is used for **traffic-sign pillar recognition in the Obstacle Challenge**, not normal wall following. The elevated position provides an unobstructed forward view and more opportunity to identify a pillar before approaching too closely.
 
-![V4 Smart Camera support](media/robot_v4/view_06.jpg)
+<p align="center"><img src="media/robot_v4/view_06.jpg" alt="V4 Smart Camera support" width="430"></p>
 
 At Nationals, the team's preceding AI camera provided obstacle updates too slowly for the desired navigation response. We therefore changed the camera and its mounting approach in V4. The new mount trades compactness for forward visual clearance and early recognition.
 
@@ -379,7 +378,7 @@ The Open Challenge requires the vehicle to navigate using track geometry without
 5. Detect successive blue ground markings at the rear sensor.
 6. After the three-lap count, execute the final stopping maneuver.
 
-![Robot on the final hardware platform](media/robot_v4/view_01.jpg)
+<p align="center"><img src="media/robot_v4/view_01.jpg" alt="Robot on the final hardware platform" width="430"></p>
 
 **[Open Challenge demonstration video](media/OPEN_CHALLENGE.mp4)**
 
@@ -389,7 +388,7 @@ The Obstacle Challenge adds colored traffic-sign pillars. Downforce's obstacle a
 
 The archived **Python V5** source contains an obstacle-related function that uses camera-detected horizontal position and object height to calculate a steering correction, with the direction of correction dependent on pillar color. This historical program is kept separate from the newer V6 navigation file: a *software revision number* is not a physical robot version.
 
-![Elevated forward vision hardware](media/robot_v4/view_04.jpg)
+<p align="center"><img src="media/robot_v4/view_04.jpg" alt="Elevated forward vision hardware" width="430"></p>
 
 [Challenge explanations and control strategy notes](docs/challenge-strategies.md)
 
@@ -431,7 +430,7 @@ The development began with graphical **mBlock** programs, then moved through sev
 | `WRO26v5.py` | Open/Obstacle functions and camera correction |
 | `WRO26v6.py` | Newer state-based navigation and line-counting architecture |
 
-![An early mBlock programming screenshot](screenshots/S2_11.4%5BSCREENSHOT%5D.png)
+<p align="center"><img src="screenshots/S2_11.4%5BSCREENSHOT%5D.png" alt="An early mBlock programming screenshot" width="430"></p>
 
 ### 7.2 Software modules and algorithms
 
@@ -514,15 +513,15 @@ Our final chassis uses modular Makeblock structural pieces rather than a custom-
 
 The documented construction follows a **bottom-up approach**. Establish the front and rear wheel assemblies and a common wheelbase, then join them with the Makeblock beams and brackets. Mount the centrally located steering servo and three-linkage assembly, connect the rear encoder motor to its shared axle, attach the controller and sensor supports, and finally install the rigid rear spoiler. Check steering travel and cable clearance before running the vehicle.
 
-![Final V4 chassis and assembly](media/robot_v4/view_03.jpg)
+<p align="center"><img src="media/robot_v4/view_03.jpg" alt="Final V4 chassis and assembly" width="430"></p>
 
 [Full component inventory and construction guide](docs/build-and-components.md)
 
 ---
 
-## 10. Documentation and Repository Navigation
+## 10. Technical Chapter Index
 
-The main README is the entry point to the project. Every technical chapter contains additional details, photographs, mathematics and reasoning relevant to its subsystem.
+The documents below hold the full subsystem explanations, while this README provides the overall engineering narrative.
 
 | Document | Contents |
 |---|---|
